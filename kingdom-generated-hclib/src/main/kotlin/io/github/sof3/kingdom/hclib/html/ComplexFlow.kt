@@ -8,10 +8,9 @@ interface ComplexFlow : GroupBlock, GroupInline, GroupMisc {
 
 	val form: ElementForm
 
-	operator fun String.unaryPlus(): ComplexFlow {
-		plusAssign(this)
-		return this@ComplexFlow
-	}
+	operator fun String.unaryPlus(): ComplexFlow
 
 	operator fun plusAssign(string: String)
+
+	operator fun plus(dom: DomElement) = this
 }

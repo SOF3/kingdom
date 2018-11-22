@@ -36,7 +36,14 @@ class ElementScript(internal val dom: DomElementImpl) : DomElement {
 	var defer: AttrTypeScriptDefer? by DomAttributeAdapter("defer", dom, null as AttrTypeScriptDefer?)
 
 
+	operator fun String.unaryPlus(): ElementScript {
+		plusAssign(this)
+		return this@ElementScript
+	}
+
 	operator fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	operator fun plus(dom: DomElement) = this
 }

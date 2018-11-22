@@ -8,4 +8,5 @@ class ComplexBlockImpl(private val dom: DomElementImpl) : GroupBlock by GroupBlo
 
 	override val form get() = ElementForm(DomElementImpl(dom))
 
+	override fun plus(dom: DomElement) = this
 }

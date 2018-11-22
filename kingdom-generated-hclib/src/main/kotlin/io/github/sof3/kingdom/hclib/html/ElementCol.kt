@@ -56,4 +56,5 @@ class ElementCol(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGroup
 	var width: SimpleMultiLength? by DomAttributeAdapter("width", dom, null as SimpleMultiLength?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

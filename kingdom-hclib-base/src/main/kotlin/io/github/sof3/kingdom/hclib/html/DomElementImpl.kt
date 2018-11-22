@@ -38,17 +38,25 @@ class DomElementImpl(parent: DomElementImpl?) {
 		nodes += { it.writeLine(escaped, doNewLine = false) }
 	}
 
-	fun addPlain(unescaped: String) = addRaw(StringEscapeUtils.escapeHtml4(unescaped))
+	fun addPlain(unescaped: String) = addRaw(StringEscapeUtils.escapeHtml4(unescaped)
+			.replace("  ", "&nbsp; ")
+			.replace("  ", " &nbsp;")) // second replace needed for odd number of consecutive spaces
 
 	fun write(writer: KingdomWriter) {
 		val attributeTokens = mutableListOf<String?>()
 		for ((name, value) in attributes) {
 			attributeTokens += listOf(null, name, "=", "\"${StringEscapeUtils.escapeHtml4(value)}\"")
 		}
-		writer.writeLine("<", element.elementName, *attributeTokens.toTypedArray(), ">")
-		writer.indented {
-			for (node in nodes) node(writer)
+		if (nodes.isEmpty()) {
+			writer.writeLine("<", element.elementName, *attributeTokens.toTypedArray(), "/>")
+		} else {
+			writer.writeLine("<", element.elementName, *attributeTokens.toTypedArray(), ">")
+			if (element.elementName == "pre") {
+				writer.unindented { nodes.forEach { it(writer) } }
+			} else {
+				writer.indented { nodes.forEach { it(writer) } }
+			}
+			writer.writeLine("</", element.elementName, ">")
 		}
-		writer.writeLine("</", element.elementName, ">")
 	}
 }

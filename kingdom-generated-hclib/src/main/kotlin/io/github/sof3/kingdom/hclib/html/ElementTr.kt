@@ -45,4 +45,5 @@ class ElementTr(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGroupA
 	val th get() = ElementTh(DomElementImpl(dom))
 	val td get() = ElementTd(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

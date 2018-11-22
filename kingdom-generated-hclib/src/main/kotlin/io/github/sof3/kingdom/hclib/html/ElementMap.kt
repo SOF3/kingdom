@@ -47,4 +47,5 @@ class ElementMap(internal val dom: DomElementImpl) : AttrGroupI18n by AttrGroupI
 	val form get() = ElementForm(DomElementImpl(dom))
 	val area get() = ElementArea(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

@@ -7,10 +7,9 @@ import javax.annotation.Generated
 interface ComplexAContent : GroupSpecial, GroupFontstyle, GroupPhrase, GroupInlineForms, GroupMiscInline {
 
 
-	operator fun String.unaryPlus(): ComplexAContent {
-		plusAssign(this)
-		return this@ComplexAContent
-	}
+	operator fun String.unaryPlus(): ComplexAContent
 
 	operator fun plusAssign(string: String)
+
+	operator fun plus(dom: DomElement) = this
 }

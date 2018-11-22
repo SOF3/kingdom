@@ -43,4 +43,5 @@ class ElementBody(internal val dom: DomElementImpl) : ComplexBlock by ComplexBlo
 	var onunload: SimpleScript? by DomAttributeAdapter("onunload", dom, null as SimpleScript?)
 
 
+	override fun plus(dom: DomElement) = this
 }

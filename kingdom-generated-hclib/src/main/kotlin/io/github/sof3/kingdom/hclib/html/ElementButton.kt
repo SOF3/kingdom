@@ -50,8 +50,9 @@ class ElementButton(internal val dom: DomElementImpl) : ComplexButtonContent by 
 
 	var name: String? by DomAttributeAdapter("name", dom, null as String?)
 	var value: String? by DomAttributeAdapter("value", dom, null as String?)
-	var type: AttrTypeType? by DomAttributeAdapter("type", dom, "submit")
+	var type: AttrTypeType? by DomAttributeAdapter("type", dom, AttrTypeType.submit)
 	var disabled: AttrTypeDisabled? by DomAttributeAdapter("disabled", dom, null as AttrTypeDisabled?)
 
 
+	override fun plus(dom: DomElement) = this
 }

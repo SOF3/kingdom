@@ -42,4 +42,5 @@ class ElementSup(internal val dom: DomElementImpl) : ComplexInline by ComplexInl
 
 
 
+	override fun plus(dom: DomElement) = this
 }

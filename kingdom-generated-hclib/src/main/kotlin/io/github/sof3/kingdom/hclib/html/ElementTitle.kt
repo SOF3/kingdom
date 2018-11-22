@@ -32,7 +32,14 @@ class ElementTitle(internal val dom: DomElementImpl) : AttrGroupI18n by AttrGrou
 	var id: XsID? by DomAttributeAdapter("id", dom, null as XsID?)
 
 
+	operator fun String.unaryPlus(): ElementTitle {
+		plusAssign(this)
+		return this@ElementTitle
+	}
+
 	operator fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	@Suppress("UNUSED_PARAMETER") operator fun plus(dom: DomElement) = this
 }

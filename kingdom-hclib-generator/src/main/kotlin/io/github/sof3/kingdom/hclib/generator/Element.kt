@@ -34,7 +34,7 @@ class Element(val name: String, val node: Node) {
 	}
 
 	fun writeImpl(writer: IndentedWriter, hasInterface: Boolean) = writer.run {
-		writeln(iOverride(hasInterface) + "val $methodName get() = $className(DomElementImpl(dom))")
+		writeln("${if (hasInterface) "override " else ""}val $methodName get() = $className(DomElementImpl(dom))")
 	}
 
 	fun writeClass(writer: IndentedWriter) = writer.run {
@@ -68,7 +68,7 @@ class Element(val name: String, val node: Node) {
 			writeln()
 			writeln("inline operator fun invoke(fn: $className.() -> Unit) = apply(fn)")
 			writeln()
-			complex.writeFunsImpl(this, false)
+			complex.writeFunsImpl(this, false, className)
 		}
 		writeln("}")
 	}

@@ -1,14 +1,20 @@
 <html>
 <head>
-    <title>
-        Hello World</title>
+    <title>Hello World</title>
 </head>
 <body>
 <div id="div1">
-    This is a regular messageThis is appended to the message&lt;&gt;&quot;&amp;'&lt;/&gt; are escaped
+    This is a regular message. This is appended to the message.<br/>
+    This is another line. &lt;&gt;&quot;&amp;'&lt;/&gt; are escaped. These&nbsp; &nbsp; &nbsp;are 5 spaces.
 </div>
-<div class="class1 class2">
-    This is another div
+<div id="div2" class="class1 class2">
+    This is another div.
+</div>
+<div id="div3">
+    This is a parent div.
+    <div id="div4">This is a nested div.</div>
+    <input type="button" value="These are two"/>
+    <input type="button" value="nested buttons."/>
 </div>
 </body>
 </html>

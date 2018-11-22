@@ -44,4 +44,5 @@ class ElementThead(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGro
 
 	val tr get() = ElementTr(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

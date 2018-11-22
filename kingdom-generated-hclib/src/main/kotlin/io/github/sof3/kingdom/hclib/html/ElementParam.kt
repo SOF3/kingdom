@@ -35,8 +35,9 @@ class ElementParam(internal val dom: DomElementImpl) : DomElement {
 	var id: XsID? by DomAttributeAdapter("id", dom, null as XsID?)
 	var name: String? by DomAttributeAdapter("name", dom, null as String?)
 	var value: String? by DomAttributeAdapter("value", dom, null as String?)
-	var valuetype: AttrTypeParamValuetype? by DomAttributeAdapter("valuetype", dom, "data")
+	var valuetype: AttrTypeParamValuetype? by DomAttributeAdapter("valuetype", dom, AttrTypeParamValuetype.data)
 	var type: SimpleContentType? by DomAttributeAdapter("type", dom, null as SimpleContentType?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

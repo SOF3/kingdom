@@ -8,10 +8,9 @@ interface ComplexPreContent : GroupFontstyle, GroupPhrase, GroupSpecialPre, Grou
 
 	val a: ElementA
 
-	operator fun String.unaryPlus(): ComplexPreContent {
-		plusAssign(this)
-		return this@ComplexPreContent
-	}
+	operator fun String.unaryPlus(): ComplexPreContent
 
 	operator fun plusAssign(string: String)
+
+	operator fun plus(dom: DomElement) = this
 }

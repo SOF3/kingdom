@@ -10,10 +10,9 @@ interface ComplexButtonContent : GroupHeading, GroupLists, GroupBlocktext, Group
 	val div: ElementDiv
 	val table: ElementTable
 
-	operator fun String.unaryPlus(): ComplexButtonContent {
-		plusAssign(this)
-		return this@ComplexButtonContent
-	}
+	operator fun String.unaryPlus(): ComplexButtonContent
 
 	operator fun plusAssign(string: String)
+
+	operator fun plus(dom: DomElement) = this
 }

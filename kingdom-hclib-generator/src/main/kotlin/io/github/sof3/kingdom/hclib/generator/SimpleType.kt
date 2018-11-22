@@ -52,6 +52,17 @@ private fun typeOf(type: Node, typeName: String): SimpleType {
 	val anno = getAnnotation(type)
 
 	type.firstChild("restriction") { restr ->
+		if (restr.firstChild("enumeration") != null) {
+			return SimpleType(typeName, default = { "$typeName.${cleanKeyword(it)}" }) {
+				writeln("enum class $typeName {")
+				indented {
+					restr.children("enumeration") { enum ->
+						writeln(cleanKeyword(enum["value"]!!) + ",")
+					}
+				}
+				writeln("}")
+			}
+		}
 		restr.firstChild("length") { len ->
 			if (len["value"] == "1" && len["fixed"] == "true") {
 				return SimpleType(typeName, default = { "'$it'" }) { writeln("typealias $typeName = Char") }
@@ -64,17 +75,6 @@ private fun typeOf(type: Node, typeName: String): SimpleType {
 			}
 		}
 		if (restr["base"] == "Number") return SimpleType(typeName, default = { it }) { writeln("typealias $typeName = Int") }
-		if (restr.firstChild("enumeration") != null) {
-			return SimpleType(typeName, default = { "$typeName.${cleanKeyword(it)}" }) {
-				writeln("enum class $typeName {")
-				indented {
-					restr.children("enumeration") { enum ->
-						writeln(cleanKeyword(enum["value"]!!) + ",")
-					}
-				}
-				writeln("}")
-			}
-		}
 	}
 
 	for ((keyword, actual) in mapOf("comma" to ",", "space" to " ")) {

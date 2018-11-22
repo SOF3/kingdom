@@ -44,4 +44,5 @@ class ElementQ(internal val dom: DomElementImpl) : ComplexInline by ComplexInlin
 	var cite: SimpleURI? by DomAttributeAdapter("cite", dom, null as SimpleURI?)
 
 
+	override fun plus(dom: DomElement) = this
 }

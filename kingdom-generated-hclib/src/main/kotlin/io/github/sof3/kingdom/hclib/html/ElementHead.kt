@@ -35,4 +35,5 @@ class ElementHead(internal val dom: DomElementImpl) : AttrGroupI18n by AttrGroup
 	val title get() = ElementTitle(DomElementImpl(dom))
 	val base get() = ElementBase(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

@@ -50,7 +50,14 @@ class ElementOption(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGr
 	var value: String? by DomAttributeAdapter("value", dom, null as String?)
 
 
+	operator fun String.unaryPlus(): ElementOption {
+		plusAssign(this)
+		return this@ElementOption
+	}
+
 	operator fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	operator fun plus(dom: DomElement) = this
 }

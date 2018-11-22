@@ -4,4 +4,10 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeCellhalignAlign = XsToken
+enum class AttrTypeCellhalignAlign {
+	left,
+	center,
+	right,
+	justify,
+	char,
+}

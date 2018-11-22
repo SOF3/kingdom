@@ -44,4 +44,5 @@ class ElementBdo(internal val dom: DomElementImpl) : ComplexInline by ComplexInl
 	var dir: AttrTypeDir? by DomAttributeAdapter("dir", dom, null as AttrTypeDir?)
 
 
+	override fun plus(dom: DomElement) = this
 }

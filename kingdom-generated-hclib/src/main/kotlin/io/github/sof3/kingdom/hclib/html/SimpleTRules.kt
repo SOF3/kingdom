@@ -4,4 +4,10 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias SimpleTRules = XsToken
+enum class SimpleTRules {
+	none,
+	groups,
+	rows,
+	cols,
+	all,
+}

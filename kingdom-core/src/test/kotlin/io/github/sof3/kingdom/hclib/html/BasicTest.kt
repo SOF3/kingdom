@@ -28,11 +28,18 @@ class BasicTest {
 		}
 		body {
 			div("div1") {
-				+"This is a regular message"
-				+"This is appended to the message"
-				+"<>\"&'</> are escaped"
+				+"This is a regular message. "
+				+"This is appended to the message." + br
+				+"This is another line. "
+				+"<>\"&'</> are escaped. "
+				+"These     are 5 spaces."
 			}
-			div(classes = listOf("class1", "class2")) += "This is another div"
+			div("div2", classes = listOf("class1", "class2")) += "This is another div."
+			div("div3") {
+				+"This is a parent div."
+				div("div4") += "This is a nested div."
+				input(type = SimpleInputType.button, value = "These are two") + input(type = SimpleInputType.button, value = "nested buttons.")
+			}
 		}
 	}
 

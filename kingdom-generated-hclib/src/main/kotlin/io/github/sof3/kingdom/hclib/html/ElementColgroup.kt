@@ -52,4 +52,5 @@ class ElementColgroup(internal val dom: DomElementImpl) : AttrGroupAttrs by Attr
 
 	val col get() = ElementCol(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

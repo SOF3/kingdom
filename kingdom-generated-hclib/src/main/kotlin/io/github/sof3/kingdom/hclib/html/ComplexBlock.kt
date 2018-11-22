@@ -8,4 +8,5 @@ interface ComplexBlock : GroupBlock, GroupMisc {
 
 	val form: ElementForm
 
+	operator fun plus(dom: DomElement) = this
 }

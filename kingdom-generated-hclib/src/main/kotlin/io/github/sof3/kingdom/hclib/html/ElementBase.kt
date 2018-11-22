@@ -30,4 +30,5 @@ class ElementBase(internal val dom: DomElementImpl) : DomElement {
 	var id: XsID? by DomAttributeAdapter("id", dom, null as XsID?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

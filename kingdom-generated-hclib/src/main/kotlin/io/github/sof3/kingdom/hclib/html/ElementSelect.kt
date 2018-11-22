@@ -60,4 +60,5 @@ class ElementSelect(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGr
 	val optgroup get() = ElementOptgroup(DomElementImpl(dom))
 	val option get() = ElementOption(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

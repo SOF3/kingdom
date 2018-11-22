@@ -7,10 +7,9 @@ import javax.annotation.Generated
 interface ComplexInline : GroupInline, GroupMiscInline {
 
 
-	operator fun String.unaryPlus(): ComplexInline {
-		plusAssign(this)
-		return this@ComplexInline
-	}
+	operator fun String.unaryPlus(): ComplexInline
 
 	operator fun plusAssign(string: String)
+
+	operator fun plus(dom: DomElement) = this
 }

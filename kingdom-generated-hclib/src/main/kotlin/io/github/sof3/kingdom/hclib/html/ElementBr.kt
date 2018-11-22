@@ -30,4 +30,5 @@ class ElementBr(internal val dom: DomElementImpl) : AttrGroupCoreattrs by AttrGr
 
 
 
+	operator fun plus(dom: DomElement) = this
 }

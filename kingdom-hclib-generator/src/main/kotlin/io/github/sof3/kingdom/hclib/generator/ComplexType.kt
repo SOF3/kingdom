@@ -73,7 +73,7 @@ class ComplexType {
 		val delegates = this@ComplexType.delegates + name
 		writeln("class ${name}Impl(private val dom: DomElementImpl) : ${delegates.joinToString()} {")
 		indented {
-			writeFunsImpl(this, true)
+			writeFunsImpl(this, true, "${name}Impl")
 		}
 		writeln("}")
 	}
@@ -88,18 +88,15 @@ class ComplexType {
 		}
 		writeln()
 		if (mixed && !anyAncestor { it.mixed }) {
-			writeln("operator fun String.unaryPlus(): $thisName {")
-			indented {
-				writeln("plusAssign(this)")
-				writeln("return this@$thisName")
-			}
-			writeln("}")
+			writeln("operator fun String.unaryPlus(): $thisName")
 			writeln()
 			writeln("operator fun plusAssign(string: String)")
+			writeln()
 		}
+		writeln("operator fun plus(dom: DomElement) = this")
 	}
 
-	fun writeFunsImpl(writer: IndentedWriter, hasInterface: Boolean) = writer.run {
+	fun writeFunsImpl(writer: IndentedWriter, hasInterface: Boolean, thisName: String) = writer.run {
 		for ((_, attribute) in attributes) {
 			attribute.writeImpl(this, hasInterface)
 		}
@@ -109,12 +106,22 @@ class ComplexType {
 		}
 		writeln()
 		if (mixed && !anyAncestor { it.mixed }) {
+			writeln("${if (hasInterface) "override" else "operator"} fun String.unaryPlus(): $thisName {")
+			indented {
+				writeln("plusAssign(this)")
+				writeln("return this@$thisName")
+			}
+			writeln("}")
+			writeln()
 			writeln("${if (hasInterface) "override" else "operator"} fun plusAssign(string: String){")
 			indented {
 				writeln("dom.addPlain(string)")
 			}
 			writeln("}")
+			writeln()
 		}
+
+		writeln("${if (hasInterface || parentName != null) "override" else "@Suppress(\"UNUSED_PARAMETER\")  operator"} fun plus(dom: DomElement) = this")
 	}
 
 	fun parseNode(type: Node) {
@@ -145,5 +152,3 @@ class ComplexType {
 		}
 	}
 }
-
-fun iOverride(hasInterface: Boolean) = if (hasInterface) "override " else ""

@@ -7,4 +7,5 @@ import javax.annotation.Generated
 class ComplexFormContentImpl(private val dom: DomElementImpl) : GroupBlock by GroupBlockImpl(dom), GroupMisc by GroupMiscImpl(dom), ComplexFormContent {
 
 
+	override fun plus(dom: DomElement) = this
 }

@@ -4,4 +4,6 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeSelectMultiple = XsToken
+enum class AttrTypeSelectMultiple {
+	multiple,
+}

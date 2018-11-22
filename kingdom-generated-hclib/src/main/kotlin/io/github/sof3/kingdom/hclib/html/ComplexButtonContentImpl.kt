@@ -10,7 +10,14 @@ class ComplexButtonContentImpl(private val dom: DomElementImpl) : GroupHeading b
 	override val div get() = ElementDiv(DomElementImpl(dom))
 	override val table get() = ElementTable(DomElementImpl(dom))
 
+	override fun String.unaryPlus(): ComplexButtonContentImpl {
+		plusAssign(this)
+		return this@ComplexButtonContentImpl
+	}
+
 	override fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	override fun plus(dom: DomElement) = this
 }

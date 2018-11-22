@@ -60,7 +60,14 @@ class ElementTextarea(internal val dom: DomElementImpl) : AttrGroupAttrs by Attr
 	var onchange: SimpleScript? by DomAttributeAdapter("onchange", dom, null as SimpleScript?)
 
 
+	operator fun String.unaryPlus(): ElementTextarea {
+		plusAssign(this)
+		return this@ElementTextarea
+	}
+
 	operator fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	operator fun plus(dom: DomElement) = this
 }

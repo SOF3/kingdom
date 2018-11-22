@@ -44,4 +44,5 @@ class ElementLegend(internal val dom: DomElementImpl) : ComplexInline by Complex
 	var accesskey: SimpleCharacter? by DomAttributeAdapter("accesskey", dom, null as SimpleCharacter?)
 
 
+	override fun plus(dom: DomElement) = this
 }

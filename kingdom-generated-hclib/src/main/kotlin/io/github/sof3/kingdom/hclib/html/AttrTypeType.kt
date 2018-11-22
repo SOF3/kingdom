@@ -4,4 +4,8 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeType = XsToken
+enum class AttrTypeType {
+	button,
+	submit,
+	reset,
+}

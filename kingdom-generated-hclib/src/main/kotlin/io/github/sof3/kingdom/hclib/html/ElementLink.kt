@@ -65,4 +65,5 @@ class ElementLink(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGrou
 	var media: SimpleMediaDesc? by DomAttributeAdapter("media", dom, null as SimpleMediaDesc?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

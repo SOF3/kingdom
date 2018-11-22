@@ -46,11 +46,12 @@ class ElementArea(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGrou
 
 	inline operator fun invoke(fn: ElementArea.() -> Unit) = apply(fn)
 
-	var shape: SimpleShape? by DomAttributeAdapter("shape", dom, "rect")
+	var shape: SimpleShape? by DomAttributeAdapter("shape", dom, SimpleShape.rect)
 	var coords: SimpleCoords? by DomAttributeAdapter("coords", dom, null as SimpleCoords?)
 	var href: SimpleURI? by DomAttributeAdapter("href", dom, null as SimpleURI?)
 	var nohref: AttrTypeAreaNohref? by DomAttributeAdapter("nohref", dom, null as AttrTypeAreaNohref?)
 	var alt: SimpleText? by DomAttributeAdapter("alt", dom, null as SimpleText?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

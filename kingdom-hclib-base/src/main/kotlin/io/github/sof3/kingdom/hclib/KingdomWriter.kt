@@ -34,6 +34,13 @@ class KingdomWriter(val delegate: Writer, val config: KingdomWriterConfig) : Wri
 		}
 	}
 
+	inline fun unindented(fn: () -> Unit) {
+		val tmp = indents
+		indents = 0
+		fn()
+		indents = tmp
+	}
+
 	/**
 	 * Writes a line of tokens. A null token means a whitespace character that can be omitted if it is at hard wraps.
 	 */

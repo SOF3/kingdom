@@ -60,4 +60,5 @@ class ElementTable(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGro
 	val tbody get() = ElementTbody(DomElementImpl(dom))
 	val tr get() = ElementTr(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

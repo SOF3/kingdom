@@ -4,4 +4,6 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeInputChecked = XsToken
+enum class AttrTypeInputChecked {
+	checked,
+}

@@ -51,7 +51,7 @@ class Attribute(val node: Node) {
 			else -> "\"$default\""
 		}
 
-		writeln("""${iOverride(hasInterface)}var $varName: $type? by DomAttributeAdapter("$name", dom, $d)""")
+		writeln("${if (hasInterface) "override " else ""}var $varName: $type? by DomAttributeAdapter(\"$name\", dom, $d)")
 	}
 
 	fun mangleInput(inputVar: String): String = simpleType?.mangleInput?.invoke(inputVar) ?: inputVar

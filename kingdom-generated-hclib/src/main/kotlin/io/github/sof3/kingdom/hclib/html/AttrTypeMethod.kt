@@ -4,4 +4,7 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeMethod = XsToken
+enum class AttrTypeMethod {
+	get,
+	post,
+}

@@ -8,7 +8,14 @@ class ComplexPreContentImpl(private val dom: DomElementImpl) : GroupFontstyle by
 
 	override val a get() = ElementA(DomElementImpl(dom))
 
+	override fun String.unaryPlus(): ComplexPreContentImpl {
+		plusAssign(this)
+		return this@ComplexPreContentImpl
+	}
+
 	override fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	override fun plus(dom: DomElement) = this
 }

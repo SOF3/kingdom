@@ -4,4 +4,15 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias SimpleInputType = XsToken
+enum class SimpleInputType {
+	text,
+	password,
+	checkbox,
+	radio,
+	submit,
+	reset,
+	file,
+	hidden,
+	image,
+	button,
+}

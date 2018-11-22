@@ -42,4 +42,5 @@ class ElementSpan(internal val dom: DomElementImpl) : ComplexInline by ComplexIn
 
 
 
+	override fun plus(dom: DomElement) = this
 }

@@ -39,4 +39,5 @@ class ElementHr(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGroupA
 
 
 
+	operator fun plus(dom: DomElement) = this
 }

@@ -4,4 +4,9 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias SimpleShape = XsToken
+enum class SimpleShape {
+	rect,
+	circle,
+	poly,
+	default,
+}

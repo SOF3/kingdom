@@ -4,4 +4,9 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias SimpleScope = XsToken
+enum class SimpleScope {
+	row,
+	col,
+	rowgroup,
+	colgroup,
+}

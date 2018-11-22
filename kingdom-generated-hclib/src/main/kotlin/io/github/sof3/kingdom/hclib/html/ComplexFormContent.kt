@@ -7,4 +7,5 @@ import javax.annotation.Generated
 interface ComplexFormContent : GroupBlock, GroupMisc {
 
 
+	operator fun plus(dom: DomElement) = this
 }

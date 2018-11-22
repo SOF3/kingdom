@@ -58,7 +58,7 @@ class ElementInput(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGro
 
 	inline operator fun invoke(fn: ElementInput.() -> Unit) = apply(fn)
 
-	var type: SimpleInputType? by DomAttributeAdapter("type", dom, "text")
+	var type: SimpleInputType? by DomAttributeAdapter("type", dom, SimpleInputType.text)
 	var name: String? by DomAttributeAdapter("name", dom, null as String?)
 	var value: String? by DomAttributeAdapter("value", dom, null as String?)
 	var checked: AttrTypeInputChecked? by DomAttributeAdapter("checked", dom, null as AttrTypeInputChecked?)
@@ -74,4 +74,5 @@ class ElementInput(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGro
 	var accept: SimpleContentTypes? by DomAttributeAdapter("accept", dom, null as SimpleContentTypes?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

@@ -42,4 +42,5 @@ class ElementPre(internal val dom: DomElementImpl) : ComplexPreContent by Comple
 
 
 
+	override fun plus(dom: DomElement) = this
 }

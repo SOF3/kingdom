@@ -36,7 +36,14 @@ class ElementStyle(internal val dom: DomElementImpl) : AttrGroupI18n by AttrGrou
 	var title: SimpleText? by DomAttributeAdapter("title", dom, null as SimpleText?)
 
 
+	operator fun String.unaryPlus(): ElementStyle {
+		plusAssign(this)
+		return this@ElementStyle
+	}
+
 	operator fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	operator fun plus(dom: DomElement) = this
 }

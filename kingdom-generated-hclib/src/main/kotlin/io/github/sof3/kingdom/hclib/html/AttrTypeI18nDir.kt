@@ -4,4 +4,7 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeI18nDir = XsToken
+enum class AttrTypeI18nDir {
+	ltr,
+	rtl,
+}

@@ -67,7 +67,14 @@ class ElementObject(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGr
 	val param get() = ElementParam(DomElementImpl(dom))
 	val form get() = ElementForm(DomElementImpl(dom))
 
+	operator fun String.unaryPlus(): ElementObject {
+		plusAssign(this)
+		return this@ElementObject
+	}
+
 	operator fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	operator fun plus(dom: DomElement) = this
 }

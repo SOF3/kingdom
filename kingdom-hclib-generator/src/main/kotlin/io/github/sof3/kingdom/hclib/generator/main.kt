@@ -50,12 +50,11 @@ object ParsedModel {
 
 fun main(args: Array<String>) = task("Executing", big = true) {
 	if (!XHTML_SCHEMA_OFFLINE.isFile) {
-		task("Downloading xhtml1-strict.xsd for the first time... ") {
+		task("Downloading xhtml1-strict.xsd for the first time") {
 			if (!CACHE_DIR.isDirectory) CACHE_DIR.mkdirs()
 			URL(XHTML_SCHEMA_ONLINE).openStream().use { dl ->
 				FileOutputStream(XHTML_SCHEMA_OFFLINE).use { fw ->
 					IOUtils.copyLarge(dl, fw)
-					println("Done")
 				}
 			}
 		}

@@ -42,4 +42,5 @@ class ElementStrong(internal val dom: DomElementImpl) : ComplexInline by Complex
 
 
 
+	override fun plus(dom: DomElement) = this
 }

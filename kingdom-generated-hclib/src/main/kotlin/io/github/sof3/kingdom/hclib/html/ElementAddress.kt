@@ -42,4 +42,5 @@ class ElementAddress(internal val dom: DomElementImpl) : ComplexInline by Comple
 
 
 
+	override fun plus(dom: DomElement) = this
 }

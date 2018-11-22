@@ -55,4 +55,5 @@ class ElementTh(internal val dom: DomElementImpl) : ComplexFlow by ComplexFlowIm
 	var colspan: SimpleNumber? by DomAttributeAdapter("colspan", dom, 1)
 
 
+	override fun plus(dom: DomElement) = this
 }

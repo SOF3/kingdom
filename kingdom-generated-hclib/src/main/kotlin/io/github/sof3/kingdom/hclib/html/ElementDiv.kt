@@ -42,4 +42,5 @@ class ElementDiv(internal val dom: DomElementImpl) : ComplexFlow by ComplexFlowI
 
 
 
+	override fun plus(dom: DomElement) = this
 }

@@ -4,4 +4,6 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeDisabled = XsToken
+enum class AttrTypeDisabled {
+	disabled,
+}

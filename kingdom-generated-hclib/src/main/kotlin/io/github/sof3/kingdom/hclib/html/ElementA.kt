@@ -60,8 +60,9 @@ class ElementA(internal val dom: DomElementImpl) : ComplexAContent by ComplexACo
 	var hreflang: SimpleLanguageCode? by DomAttributeAdapter("hreflang", dom, null as SimpleLanguageCode?)
 	var rel: SimpleLinkTypes? by DomAttributeAdapter("rel", dom, null as SimpleLinkTypes?)
 	var rev: SimpleLinkTypes? by DomAttributeAdapter("rev", dom, null as SimpleLinkTypes?)
-	var shape: SimpleShape? by DomAttributeAdapter("shape", dom, "rect")
+	var shape: SimpleShape? by DomAttributeAdapter("shape", dom, SimpleShape.rect)
 	var coords: SimpleCoords? by DomAttributeAdapter("coords", dom, null as SimpleCoords?)
 
 
+	override fun plus(dom: DomElement) = this
 }

@@ -42,4 +42,5 @@ class ElementNoscript(internal val dom: DomElementImpl) : ComplexBlock by Comple
 
 
 
+	override fun plus(dom: DomElement) = this
 }

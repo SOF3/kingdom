@@ -43,4 +43,5 @@ class ElementDel(internal val dom: DomElementImpl) : ComplexFlow by ComplexFlowI
 	var datetime: SimpleDatetime? by DomAttributeAdapter("datetime", dom, null as SimpleDatetime?)
 
 
+	override fun plus(dom: DomElement) = this
 }

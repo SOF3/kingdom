@@ -47,4 +47,5 @@ class ElementOptgroup(internal val dom: DomElementImpl) : AttrGroupAttrs by Attr
 
 	val option get() = ElementOption(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

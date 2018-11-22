@@ -45,7 +45,7 @@ class ElementForm(internal val dom: DomElementImpl) : ComplexFormContent by Comp
 	inline operator fun invoke(fn: ElementForm.() -> Unit) = apply(fn)
 
 	var action: SimpleURI? by DomAttributeAdapter("action", dom, null as SimpleURI?)
-	var method: AttrTypeMethod? by DomAttributeAdapter("method", dom, "get")
+	var method: AttrTypeMethod? by DomAttributeAdapter("method", dom, AttrTypeMethod.get)
 	var enctype: SimpleContentType? by DomAttributeAdapter("enctype", dom, "application/x-www-form-urlencoded")
 	var onsubmit: SimpleScript? by DomAttributeAdapter("onsubmit", dom, null as SimpleScript?)
 	var onreset: SimpleScript? by DomAttributeAdapter("onreset", dom, null as SimpleScript?)
@@ -53,4 +53,5 @@ class ElementForm(internal val dom: DomElementImpl) : ComplexFormContent by Comp
 	var acceptCharset: SimpleCharsets? by DomAttributeAdapter("accept-charset", dom, null as SimpleCharsets?)
 
 
+	override fun plus(dom: DomElement) = this
 }

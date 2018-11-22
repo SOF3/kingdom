@@ -51,4 +51,5 @@ class ElementLabel(internal val dom: DomElementImpl) : ComplexInline by ComplexI
 	var onblur: SimpleScript? by DomAttributeAdapter("onblur", dom, null as SimpleScript?)
 
 
+	override fun plus(dom: DomElement) = this
 }

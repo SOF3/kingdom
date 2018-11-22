@@ -29,4 +29,5 @@ class ElementHtml(internal val dom: DomElementImpl) : AttrGroupI18n by AttrGroup
 	val head get() = ElementHead(DomElementImpl(dom))
 	val body get() = ElementBody(DomElementImpl(dom))
 
+	operator fun plus(dom: DomElement) = this
 }

@@ -8,7 +8,14 @@ class ComplexFlowImpl(private val dom: DomElementImpl) : GroupBlock by GroupBloc
 
 	override val form get() = ElementForm(DomElementImpl(dom))
 
+	override fun String.unaryPlus(): ComplexFlowImpl {
+		plusAssign(this)
+		return this@ComplexFlowImpl
+	}
+
 	override fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	override fun plus(dom: DomElement) = this
 }

@@ -53,4 +53,5 @@ class ElementImg(internal val dom: DomElementImpl) : AttrGroupAttrs by AttrGroup
 	var ismap: AttrTypeImgIsmap? by DomAttributeAdapter("ismap", dom, null as AttrTypeImgIsmap?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

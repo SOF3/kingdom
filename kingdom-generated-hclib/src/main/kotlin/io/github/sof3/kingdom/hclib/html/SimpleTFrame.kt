@@ -4,4 +4,14 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias SimpleTFrame = XsToken
+enum class SimpleTFrame {
+	void,
+	above,
+	below,
+	hsides,
+	lhs,
+	rhs,
+	vsides,
+	box,
+	border,
+}

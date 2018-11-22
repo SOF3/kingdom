@@ -4,4 +4,9 @@ package io.github.sof3.kingdom.hclib.html
 
 import javax.annotation.Generated
 
-typealias AttrTypeCellvalignValign = XsToken
+enum class AttrTypeCellvalignValign {
+	top,
+	middle,
+	bottom,
+	baseline,
+}

@@ -38,4 +38,5 @@ class ElementMeta(internal val dom: DomElementImpl) : AttrGroupI18n by AttrGroup
 	var scheme: String? by DomAttributeAdapter("scheme", dom, null as String?)
 
 
+	operator fun plus(dom: DomElement) = this
 }

@@ -48,7 +48,14 @@ class ElementFieldset(internal val dom: DomElementImpl) : AttrGroupAttrs by Attr
 	val legend get() = ElementLegend(DomElementImpl(dom))
 	val form get() = ElementForm(DomElementImpl(dom))
 
+	operator fun String.unaryPlus(): ElementFieldset {
+		plusAssign(this)
+		return this@ElementFieldset
+	}
+
 	operator fun plusAssign(string: String){
 		dom.addPlain(string)
 	}
+
+	operator fun plus(dom: DomElement) = this
 }

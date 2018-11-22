@@ -41,4 +41,5 @@ class ElementBlockquote(internal val dom: DomElementImpl) : ComplexBlock by Comp
 	var cite: SimpleURI? by DomAttributeAdapter("cite", dom, null as SimpleURI?)
 
 
+	override fun plus(dom: DomElement) = this
 }
