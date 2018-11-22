@@ -68,11 +68,11 @@ fun getAnnotation(node: Node): List<String>? {
 	return null
 }
 
-fun IndentedWriter.writeAnnotation(node: Node) : String?{
+fun IndentedWriter.writeAnnotation(node: Node): String? {
 	val anno = getAnnotation(node)
-	if(anno != null){
+	if (anno != null) {
 		writeln("/**")
-		for(line in anno) writeln(" * $line")
+		for (line in anno) writeln(" * $line")
 		writeln(" */")
 		return anno.joinToString(" ")
 	}

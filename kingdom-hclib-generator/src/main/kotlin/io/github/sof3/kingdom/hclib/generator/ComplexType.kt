@@ -109,7 +109,7 @@ class ComplexType {
 		}
 		writeln()
 		if (mixed && !anyAncestor { it.mixed }) {
-			writeln("${if(hasInterface) "override" else "operator"} fun plusAssign(string: String){")
+			writeln("${if (hasInterface) "override" else "operator"} fun plusAssign(string: String){")
 			indented {
 				writeln("dom.addPlain(string)")
 			}
@@ -146,4 +146,4 @@ class ComplexType {
 	}
 }
 
-fun iOverride(hasInterface: Boolean) = if(hasInterface) "override " else ""
+fun iOverride(hasInterface: Boolean) = if (hasInterface) "override " else ""

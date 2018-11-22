@@ -27,8 +27,7 @@ class Attribute(val node: Node) {
 			if (type.startsWith("xs:")) {
 				val name = type.substring(3)
 				ParsedModel.simpleTypes.xs(name).type
-			}
-			else "Simple${type.formatToPascal()}"
+			} else "Simple${type.formatToPascal()}"
 		else (node.firstChild("simpleType") {
 			ParsedModel.simpleTypes.add(it, "AttrType", node.parentNode.parentNode, node.parentNode, node)
 		} or { "String" }).r!!

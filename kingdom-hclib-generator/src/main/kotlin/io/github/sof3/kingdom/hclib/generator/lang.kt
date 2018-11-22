@@ -7,6 +7,7 @@ inline fun <T> T?.ifNotNull(fn: (T) -> Unit) {
 fun String.ucFirst() =
 		if (isEmpty()) ""
 		else this[0].toUpperCase() + substring(1)
+
 fun String.lcFirst() =
 		if (isEmpty()) ""
 		else this[0].toLowerCase() + substring(1)

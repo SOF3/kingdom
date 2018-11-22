@@ -19,13 +19,13 @@ package io.github.sof3.kingdom.hclib.generator
  */
 
 class ThenElse<R>(val boolean: Boolean, var r: R?) {
-	inline infix fun then(fn: () -> R): ThenElse<R>{
-		if(boolean) r = fn()
+	inline infix fun then(fn: () -> R): ThenElse<R> {
+		if (boolean) r = fn()
 		return this
 	}
 
-	inline infix fun or(fn: () -> R): ThenElse<R>{
-		if(!boolean) r = fn()
+	inline infix fun or(fn: () -> R): ThenElse<R> {
+		if (!boolean) r = fn()
 		return this
 	}
 }

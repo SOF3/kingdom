@@ -37,22 +37,22 @@ class KingdomWriter(val delegate: Writer, val config: KingdomWriterConfig) : Wri
 	/**
 	 * Writes a line of tokens. A null token means a whitespace character that can be omitted if it is at hard wraps.
 	 */
-	fun writeLine(vararg tokens: String?, doNewLine: Boolean = true){
-		for(i in 0 until tokens.size){
-			if(tokens[i] != null) write(tokens[i])
-			else if(tokens[i + 1] != null){
+	fun writeLine(vararg tokens: String?, doNewLine: Boolean = true) {
+		for (i in 0 until tokens.size) {
+			if (tokens[i] != null) write(tokens[i])
+			else if (tokens[i + 1] != null) {
 				val next = tokens[i + 1]!!
-				if(lineSize + next.length + 1 <= config.hardWrap) { // we will not need to hard wrap
+				if (lineSize + next.length + 1 <= config.hardWrap) { // we will not need to hard wrap
 					write(" ")
 				}
 			}
 		}
-		if(doNewLine) newLine()
+		if (doNewLine) newLine()
 	}
 
 	override fun write(cbuf: CharArray?, off: Int, len: Int) {
 		if (len == 0) return
-		if (lineSize + len > config.hardWrap){
+		if (lineSize + len > config.hardWrap) {
 			cont = true
 			delegate.write(config.newline)
 			lineSize = 0
